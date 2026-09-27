@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper-tint: #f5f1e8;
+    --paper-dark: #141312;
+    --vintage-ink: #1b1917;
+    --cyan-cmyk: #00a8e8;
+    --magenta-cmyk: #e60067;
+    --yellow-cmyk: #ffd000;
+    --black-cmyk: #1a1815;
+    --brass-gold: #c29d59;
+  }
+
+  body {
+    background-color: #171514;
+    color: #e6dfd5;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Retro Offset Halftone Rosette Background */
+.halftone-screen {
+  background-image: radial-gradient(rgba(230, 223, 213, 0.12) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+.halftone-cmyk-dense {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 168, 232, 0.08) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(230, 0, 103, 0.08) 2px, transparent 2px),
+    radial-gradient(circle at 75% 25%, rgba(255, 208, 0, 0.08) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+/* Kraft Paper Textured Card */
+.kraft-card {
+  background-color: #211e1c;
+  border: 1px solid #3d3732;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.vintage-brass-border {
+  border-color: #786445;
+}
+
+/* Mechanical Register Target */
+.register-mark {
+  position: relative;
+}
+.register-mark::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+}
+.register-mark::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: currentColor;
 }
